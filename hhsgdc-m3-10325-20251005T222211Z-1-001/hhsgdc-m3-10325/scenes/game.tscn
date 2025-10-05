@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw3ahhu4wsncg"]
+[gd_scene load_steps=5 format=3 uid="uid://bw3ahhu4wsncg"]
 
 [ext_resource type="PackedScene" uid="uid://c7jkoxj7jixg1" path="res://scenes/player.tscn" id="1_uq31f"]
 [ext_resource type="Texture2D" uid="uid://lhn5xvuq82lq" path="res://sprites/Mobile - Flappy Bird - Miscellaneous - Version 1.2 Sprites.png" id="1_w5plq"]
+[ext_resource type="Script" path="res://scenes/pillar_spawner.gd" id="3_h70gt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwnt6"]
 size = Vector2(144, 56)
@@ -34,3 +35,12 @@ region_rect = Rect2(292.545, -0.523026, 166.116, 56.1983)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="objects/Sprite2D/StaticBody2D"]
 position = Vector2(-10, 1)
 shape = SubResource("RectangleShape2D_fwnt6")
+
+[node name="Pillar Spawner" type="Node" parent="."]
+script = ExtResource("3_h70gt")
+
+[node name="Timer" type="Timer" parent="Pillar Spawner"]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Pillar Spawner/Timer" to="Pillar Spawner" method="_on_timer_timeout"]
