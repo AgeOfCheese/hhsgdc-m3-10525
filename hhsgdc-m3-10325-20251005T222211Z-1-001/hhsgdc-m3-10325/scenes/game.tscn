@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw3ahhu4wsncg"]
+[gd_scene load_steps=6 format=3 uid="uid://bw3ahhu4wsncg"]
 
 [ext_resource type="PackedScene" uid="uid://c7jkoxj7jixg1" path="res://scenes/player.tscn" id="1_uq31f"]
 [ext_resource type="Texture2D" uid="uid://lhn5xvuq82lq" path="res://sprites/Mobile - Flappy Bird - Miscellaneous - Version 1.2 Sprites.png" id="1_w5plq"]
 [ext_resource type="Script" path="res://scenes/pillar_spawner.gd" id="3_h70gt"]
+[ext_resource type="Script" path="res://scenes/Scrore_counter.gd" id="4_ev5mh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwnt6"]
 size = Vector2(144, 56)
@@ -42,5 +43,19 @@ script = ExtResource("3_h70gt")
 [node name="Timer" type="Timer" parent="Pillar Spawner"]
 wait_time = 2.0
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_ev5mh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -35.5
+offset_right = 35.5
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "5"
+fit_content = true
 
 [connection signal="timeout" from="Pillar Spawner/Timer" to="Pillar Spawner" method="_on_timer_timeout"]

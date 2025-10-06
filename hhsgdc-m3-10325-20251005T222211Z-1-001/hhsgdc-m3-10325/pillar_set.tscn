@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsv8nx0yh4w5p"]
+
+[ext_resource type="PackedScene" uid="uid://eyw2cjr6bsaq" path="res://pillar_body.tscn" id="1_nrvgf"]
+
+[node name="Pillar_Set" type="Node"]
+
+[node name="PillarBody" parent="." instance=ExtResource("1_nrvgf")]
+position = Vector2(0, 125)
+
+[node name="PillarBody2" parent="." instance=ExtResource("1_nrvgf")]
+position = Vector2(0, -125)
+rotation = 3.14159
